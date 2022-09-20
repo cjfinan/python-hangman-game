@@ -53,13 +53,15 @@ def random_word():
 
 def current_lives():
     """
-    Tells user how many lives they have left whilst also printing hangman images"
+    Tells user how many lives they have left whilst also printing
+     hangman stages"
     """
     lives_left = 9
     print(f"Current lives: {lives_left}")
 
     if lives_left == 8:
         print("_")
+        return lives_left
     elif lives_left == 7:
         print("__")
     elif lives_left == 6:
@@ -108,21 +110,22 @@ def validate_round():
     num_of_lives = current_lives()
 
     correct_guesses = 0
-    print(correct_guesses)
 
-    while (num_of_lives != 0) or (correct_guesses != len(selected_word)):
+    while num_of_lives != 0 or correct_guesses != len(selected_word):
         guess = get_user_guess()
         print(f"guess : {guess}")
 
         result = selected_word.find(guess) + 1
         print(result)
 
-        if result == -1:
-            print("incorrect")
-            num_of_lives - 1
+        if result == 0:
+            num_of_lives -= 1
+            print(f"incorrect! Num of lives left {num_of_lives}")
+            print(current_lives())
         else:
-            print("correct")
-            correct_guesses + 1
+            correct_guesses += 1
+            print(f"correct! correct scores: {correct_guesses}")
+    
 
 
 def run_round():
