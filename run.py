@@ -1,3 +1,6 @@
+import random
+
+
 keywords = ["computer", "python", "code", "institute"]
 
 
@@ -19,7 +22,7 @@ def get_user_guess():
     return user_guess.lower()
 
 
-def validate_guess(values):   
+def validate_guess(values):
     """
     Validates users guess to see if it is one character long,
     and is aplphabetical. Returns True if criteria is met.
@@ -40,4 +43,20 @@ def validate_guess(values):
     return True
 
 
-get_user_guess()
+def random_word():
+    """
+    Randomly select a word from the keywords list
+    """
+    selected_word = random.choice(keywords)
+    return selected_word
+
+
+def run_round():
+    """
+    Run all program functions
+    """
+    random_word()
+    get_user_guess()
+
+
+run_round()
