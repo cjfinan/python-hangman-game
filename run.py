@@ -99,20 +99,38 @@ def current_lives():
     return lives_left
 
 
+def validate_round():
+    selected_word = random_word()
+    for character in selected_word:
+        print("_", end=' ')
+    print("\n")
+    print(f"random word : {selected_word}")
+    num_of_lives = current_lives()
 
+    correct_guesses = 0
+    print(correct_guesses)
+
+    while (num_of_lives != 0) or (correct_guesses != len(selected_word)):
+        guess = get_user_guess()
+        print(f"guess : {guess}")
+
+        result = selected_word.find(guess) + 1
+        print(result)
+
+        if result == -1:
+            print("incorrect")
+            num_of_lives - 1
+        else:
+            print("correct")
+            correct_guesses + 1
 
 
 def run_round():
     """
     Run all program functions
     """
-    selected_word = random_word()
-    for character in selected_word:
-        print("_", end=' ')
-    print("\n")
-
-    guess = get_user_guess()
-    current_lives()
+    validate_round()
+    
 
    # result = word.find(guess)
    # print(result)
