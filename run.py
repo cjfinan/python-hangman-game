@@ -51,17 +51,16 @@ def random_word():
     return selected_word
 
 
-def current_lives():
+def print_man(lives_left):
     """
     Tells user how many lives they have left whilst also printing
      hangman stages"
     """
-    lives_left = 9
+    
     print(f"Current lives: {lives_left}")
 
     if lives_left == 8:
         print("_")
-        return lives_left
     elif lives_left == 7:
         print("__")
     elif lives_left == 6:
@@ -98,32 +97,42 @@ def current_lives():
         print("   O")
         print("  /|\ ")
         print("  / \ ")
-    return lives_left
+
 
 
 def validate_round():
     selected_word = random_word()
+    num_of_lives = 9
+    #outcome variable = ""
+    #append character to variable
+    #creat variable correct character list
+    # move for loop into while loop
     for character in selected_word:
-        print("_", end=' ')
+        if correct_characters contains (character):
+            outcome varibale += character
+        else
+            outcome variable += "_"
+       # print("_", end=' ')
+    print outcome variable
     print("\n")
     print(f"random word : {selected_word}")
-    num_of_lives = current_lives()
 
-    correct_guesses = 0
 
-    while num_of_lives != 0 or correct_guesses != len(selected_word):
+    
+    #correct character contains an _
+    while num_of_lives != 0 or outcome variable contains _:
         guess = get_user_guess()
         print(f"guess : {guess}")
 
-        result = selected_word.find(guess) + 1
+        result = selected_word.find(guess)
         print(result)
 
-        if result == 0:
+        if result == -1:
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
-            print(current_lives())
+            print_man(num_of_lives)
         else:
-            correct_guesses += 1
+            correct_characters.append(guess)
             print(f"correct! correct scores: {correct_guesses}")
     
 
@@ -132,6 +141,7 @@ def run_round():
     """
     Run all program functions
     """
+
     validate_round()
     
 
@@ -140,3 +150,6 @@ def run_round():
 
 
 run_round()
+
+#check if c is already guessed
+#
