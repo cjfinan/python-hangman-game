@@ -52,6 +52,9 @@ def random_word():
 
 
 def current_lives():
+    """
+    Tells user how many lives they have left whilst also printing hangman images"
+    """
     lives_left = 9
     print(f"Current lives: {lives_left}")
 
