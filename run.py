@@ -8,16 +8,36 @@ def get_user_guess():
     """
     while True:
         print("Please enter the letter you would like to guess!")
-        print("It must be between a-z and lowercase\n")
+        print("It must be between a-z\n")
 
-        user_guess = input(str("Enter your letter here:\n"))
+        user_guess = str(input("Enter your letter here:\n"))
 
         if validate_guess(user_guess):
             print("Guess is valid!")
             break
-    
-    return user_guess
 
+    return user_guess.lower()
+
+
+def validate_guess(values):   
+    """
+    Validates users guess to see if it is one character long,
+    and is aplphabetical. Returns True if criteria is met.
+    """
+    try:
+        if len(values) != 1:
+            raise ValueError(
+                print("Only one letter can be guessed at any time")
+            )
+        elif values.isalpha() is False:
+            raise ValueError(
+                print("Input can only contain letters between a-z")
+            )
+    except ValueError:
+        print(f"Incorrect data: {ValueError}\n")
+        return False
+
+    return True
 
 
 get_user_guess()
