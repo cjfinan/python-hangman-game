@@ -51,12 +51,68 @@ def random_word():
     return selected_word
 
 
+def current_lives():
+    lives_left = 9
+    print(f"Current lives: {lives_left}")
+
+    if lives_left == 8:
+        print("_")
+    elif lives_left == 7:
+        print("__")
+    elif lives_left == 6:
+        print("__")
+        print("  |")
+    elif lives_left == 5:
+        print(" __")
+        print("   |")
+        print("   O")
+    elif lives_left == 4:
+        print(" __")
+        print("   |")
+        print("   O")
+        print("   |")
+    elif lives_left == 3:
+        print(" __")
+        print("   |")
+        print("   O")
+        print("  /|")
+    elif lives_left == 2:
+        print(" __")
+        print("   |")
+        print("   O")
+        print("  /|\ ")
+    elif lives_left == 1:
+        print(" __")
+        print("   |")
+        print("   O")
+        print("  /|\ ")
+        print("  /")
+    elif lives_left == 0:
+        print(" __")
+        print("   |")
+        print("   O")
+        print("  /|\ ")
+        print("  / \ ")
+    return lives_left
+
+
+
+
+
 def run_round():
     """
     Run all program functions
     """
-    random_word()
-    get_user_guess()
+    selected_word = random_word()
+    for character in selected_word:
+        print("_", end=' ')
+    print("\n")
+
+    guess = get_user_guess()
+    current_lives()
+
+   # result = word.find(guess)
+   # print(result)
 
 
 run_round()
