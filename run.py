@@ -56,7 +56,7 @@ def print_man(lives_left):
     Tells user how many lives they have left whilst also printing
      hangman stages"
     """
-    
+
     print(f"Current lives: {lives_left}")
 
     if lives_left == 8:
@@ -103,38 +103,37 @@ def print_man(lives_left):
 def validate_round():
     selected_word = random_word()
     num_of_lives = 9
-    #outcome variable = ""
-    #append character to variable
-    #creat variable correct character list
-    # move for loop into while loop
-    for character in selected_word:
-        if correct_characters contains (character):
-            outcome varibale += character
-        else
-            outcome variable += "_"
-       # print("_", end=' ')
-    print outcome variable
+
     print("\n")
     print(f"random word : {selected_word}")
 
+    outcome = ""
+    correct_characters = ""
 
-    
-    #correct character contains an _
-    while num_of_lives != 0 or outcome variable contains _:
+    while num_of_lives != 0 or "_" in outcome:
+
+        for character in selected_word:
+            if correct_characters.find(character) != -1:
+                outcome += character
+            else:
+                outcome += "_"
+
+        print(outcome)
+
         guess = get_user_guess()
-        print(f"guess : {guess}")
 
         result = selected_word.find(guess)
-        print(result)
 
         if result == -1:
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
             print_man(num_of_lives)
         else:
-            correct_characters.append(guess)
-            print(f"correct! correct scores: {correct_guesses}")
-    
+            correct_characters += guess
+            print("correct!")
+            print(outcome)
+
+
 
 
 def run_round():
@@ -143,7 +142,7 @@ def run_round():
     """
 
     validate_round()
-    
+
 
    # result = word.find(guess)
    # print(result)
@@ -152,4 +151,3 @@ def run_round():
 run_round()
 
 #check if c is already guessed
-#
