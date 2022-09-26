@@ -59,50 +59,60 @@ def print_man(lives_left):
 
     print(f"Current lives: {lives_left}")
 
-    if lives_left == 8:
-        print("_")
-    elif lives_left == 7:
-        print("__")
-    elif lives_left == 6:
-        print("__")
+    if lives_left == 6:
+        print("   ______")
+        print("  |      |")
+        print("  |")
+        print("  |")
+        print("  |")
         print("  |")
     elif lives_left == 5:
-        print(" __")
-        print("   |")
-        print("   O")
+        print("   ______")
+        print("  |      |")
+        print("  |      O")
+        print("  |")
+        print("  |")
+        print("  |")
     elif lives_left == 4:
-        print(" __")
-        print("   |")
-        print("   O")
-        print("   |")
+        print("   ______")
+        print("  |      |")
+        print("  |      O")
+        print("  |      |")
+        print("  |")
+        print("  |")
     elif lives_left == 3:
-        print(" __")
-        print("   |")
-        print("   O")
-        print("  /|")
+        print("   ______")
+        print("  |      |")
+        print("  |      O")
+        print("  |     /|")
+        print("  |")
+        print("  |")
     elif lives_left == 2:
-        print(" __")
-        print("   |")
-        print("   O")
-        print("  /|\ ")
+        print("   ______")
+        print("  |      |")
+        print("  |      O")
+        print("  |     /|\ ")
+        print("  |")
+        print("  |")
     elif lives_left == 1:
-        print(" __")
-        print("   |")
-        print("   O")
-        print("  /|\ ")
-        print("  /")
+        print("   ______")
+        print("  |      |")
+        print("  |      O")
+        print("  |     /|\ ")
+        print("  |     /")
+        print("  |")
     elif lives_left == 0:
-        print(" __")
-        print("   |")
-        print("   O")
-        print("  /|\ ")
-        print("  / \ ")
-
+        print("   ______")
+        print("  |      |")
+        print("  |      O")
+        print("  |     /|\ ")
+        print("  |     / \ ")
+        print("  |")
 
 
 def validate_round():
     selected_word = random_word()
-    num_of_lives = 9
+    num_of_lives = 6
 
     print("\n")
     print(f"random word : {selected_word}")
@@ -132,7 +142,6 @@ def validate_round():
             print_man(num_of_lives)
             incorrect_guess_list.append(guess)
             print(f"Incorrect Guesses: {incorrect_guess_list}")
-            
 
         else:
             correct_characters += guess
