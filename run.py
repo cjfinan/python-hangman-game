@@ -107,10 +107,12 @@ def validate_round():
     print("\n")
     print(f"random word : {selected_word}")
 
-    outcome = ""
     correct_characters = ""
 
-    while num_of_lives != 0 or "_" in outcome:
+    while num_of_lives != 0 or correct_characters.len() != selected_word.len():
+
+        outcome = ""
+        incorrect_guess_list = []
 
         for character in selected_word:
             if correct_characters.find(character) != -1:
@@ -128,10 +130,13 @@ def validate_round():
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
             print_man(num_of_lives)
+            incorrect_guess_list.append(guess)
+            print(f"Incorrect Guesses: {incorrect_guess_list}")
+            
+
         else:
             correct_characters += guess
             print("correct!")
-            print(outcome)
 
 
 
