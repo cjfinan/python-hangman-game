@@ -1,7 +1,8 @@
 import random
 
 
-keywords = ["computer", "python", "code", "institute"]
+keywords = ["computer", "python", "code", "institute", "hangman", "technology",
+            "algorithm", "function", "variable"]
 user_gueses_list = []
 
 
@@ -18,7 +19,6 @@ def get_user_guess():
         user_guess = str(input("Enter your letter here:\n"))
 
         if validate_guess(user_guess):
-            print("Guess is valid!")
             user_gueses_list.append(user_guess)
             break
 
@@ -148,7 +148,7 @@ def validate_round():
 
         if result != -1:
             correct_characters += guess
-            print("correct!")
+            print(f"Correct! {guess} is a part of the word!")
         else:
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
