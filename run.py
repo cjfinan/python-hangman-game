@@ -6,6 +6,24 @@ keywords = ["computer", "python", "code", "institute", "hangman", "technology",
 user_gueses_list = []
 
 
+def welcome_message():
+    """
+    Provides welcome messages and asks user if they want instructions
+    on how to play
+    """
+    print("Welcome to Hangman...\n")
+    print("Enter i for instructions...")
+    instructions = str(input("Or enter any key to play!"))
+
+    if instructions.lower() == "i":
+        print("You selected instructions...\n")
+        print("Guess the word using only characters a-z")
+        print("Guess the word before loses all lives!\n")
+        print("Good luck!")
+    elif instructions != "i":
+        print("Getting the game ready for you now...\n")
+
+
 def get_user_guess():
     """
     Asks user to guess a letter. Run a while loop to collect a valid input,
@@ -148,7 +166,7 @@ def validate_round():
 
         if result != -1:
             correct_characters += guess
-            print(f"Correct! {guess} is a part of the word!")
+            print(f"Correct! {guess} is a part of the word!\n")
         else:
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
@@ -185,7 +203,7 @@ def restart_game():
     print("Would you like to restart the game? \n")
     restart = input("Press y to restart or any key to exit...\n")
 
-    if restart == "y":
+    if restart.lower() == "y":
         print("You chose to restart!")
         print("Good Luck! \n")
         user_gueses_list.clear()
@@ -200,8 +218,10 @@ def run_round():
     """
     Run all program functions
     """
-
     validate_round()
+
+
+welcome_message()
 
 
 run_round()
