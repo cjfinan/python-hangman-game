@@ -10,14 +10,12 @@ def get_user_guess():
     Asks user to guess a letter. Run a while loop to collect a valid input,
     which must be a letter between a-z
     """
-    
+
     while True:
         print("Please enter the letter you would like to guess!")
         print("It must be between a-z\n")
 
         user_guess = str(input("Enter your letter here:\n"))
-        #create array of users guess,
-        
 
         if validate_guess(user_guess):
             print("Guess is valid!")
@@ -32,7 +30,6 @@ def validate_guess(values):
     Validates users guess to see if it is one character long,
     and is aplphabetical. Returns True if criteria is met.
     """
-    #check if user has already used guess if not append. skip losing of lives, call method again
     try:
         if len(values) != 1:
             raise ValueError(
@@ -66,8 +63,6 @@ def print_man(lives_left):
     Tells user how many lives they have left whilst also printing
      hangman stages"
     """
-
-    print(f"Current lives: {lives_left}")
 
     if lives_left == 6:
         print("   ______")
@@ -121,11 +116,16 @@ def print_man(lives_left):
 
 
 def validate_round():
+    """
+    Runs the game, sets the random word and num of lives,
+    iterates through random word to create either a "_"
+    or the correctly guesses letter. Takes away lives for
+    incorrect guesses and ends the game if lives == 0
+    """
     selected_word = random_word()
     num_of_lives = 6
 
     print("\n")
-    print(f"random word : {selected_word}")
 
     correct_characters = ""
     incorrect_guess_list = []
@@ -133,7 +133,7 @@ def validate_round():
     while num_of_lives > 0:
 
         outcome = ""
-        
+
         for character in selected_word:
             if correct_characters.find(character) != -1:
                 outcome += character
@@ -162,11 +162,6 @@ def validate_round():
     if num_of_lives == 0:
         print("Unlucky you have ran out of guesses!\n")
         restart_game()
-        
-
-    #create loss message give user option to restart game
-    #call new method        
-# new method if correct_characters == to selected_word. use correct_characters as param
 
 
 def correct_word(correct_characters, selected_word):
@@ -188,6 +183,7 @@ def restart_game():
     if restart == "y":
         print("You chose to restart!")
         print("Good Luck! \n")
+        user_gueses_list.clear()
         run_round()
     elif restart != "y":
         print("You chose to exit!")
@@ -204,5 +200,3 @@ def run_round():
 
 
 run_round()
-
-#start game press i for instructions or enter to play
