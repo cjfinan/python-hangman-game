@@ -146,13 +146,13 @@ def validate_round():
 
         result = selected_word.find(guess)
         # make if statement positive first
+
         if result == -1:
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
             print_man(num_of_lives)
             incorrect_guess_list.append(guess)
             print(f"Incorrect Guesses: {incorrect_guess_list}")
-
         else:
             correct_characters += guess
             print("correct!")
@@ -168,7 +168,13 @@ def correct_word(correct_characters, selected_word):
     """
     Compares users guesses to the random selected word
     """
-    if correct_characters == selected_word:
+    is_equal = True
+
+    for letter in selected_word:
+        if letter not in correct_characters:
+            is_equal = False
+
+    if is_equal:
         print("Congratulations you win!!\n")
         restart_game()
 
