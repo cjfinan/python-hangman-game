@@ -2,6 +2,7 @@ import random
 
 
 keywords = ["computer", "python", "code", "institute"]
+user_gueses_list = []
 
 
 def get_user_guess():
@@ -9,15 +10,18 @@ def get_user_guess():
     Asks user to guess a letter. Run a while loop to collect a valid input,
     which must be a letter between a-z
     """
+    
     while True:
         print("Please enter the letter you would like to guess!")
         print("It must be between a-z\n")
 
         user_guess = str(input("Enter your letter here:\n"))
         #create array of users guess,
+        
 
         if validate_guess(user_guess):
             print("Guess is valid!")
+            user_gueses_list.append(user_guess)
             break
 
     return user_guess.lower()
@@ -37,6 +41,10 @@ def validate_guess(values):
         elif values.isalpha() is False:
             raise ValueError(
                 print("Input can only contain letters between a-z")
+            )
+        elif values in user_gueses_list:
+            raise ValueError(
+                print(f"You have already guessed {values} try another letter!")
             )
     except ValueError:
         print(f"Incorrect data: {ValueError}\n")
