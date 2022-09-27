@@ -149,6 +149,8 @@ def validate_round():
             correct_characters += guess
             print("correct!")
 
+        correct_word(correct_characters, selected_word)
+
     if num_of_lives == 0:
         print("Unlucky you have ran out of guesses!\n")
         replay_game = str(input("Would you like to retry?? y/n \n"))
@@ -163,6 +165,14 @@ def validate_round():
     #call new method        
 
 # new method if correct_characters == to selected_word. use correct_characters as param
+
+
+def correct_word(correct_characters, selected_word):
+    """
+    Compares users guesses to the random selected word
+    """
+    if correct_characters == selected_word:
+        print("Congratulations you win!!\n")
 
 
 def run_round():
