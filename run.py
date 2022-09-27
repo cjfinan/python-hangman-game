@@ -14,6 +14,7 @@ def get_user_guess():
         print("It must be between a-z\n")
 
         user_guess = str(input("Enter your letter here:\n"))
+        #create array of users guess,
 
         if validate_guess(user_guess):
             print("Guess is valid!")
@@ -27,6 +28,7 @@ def validate_guess(values):
     Validates users guess to see if it is one character long,
     and is aplphabetical. Returns True if criteria is met.
     """
+    #check if user has already used guess if not append. skip losing of lives, call method again
     try:
         if len(values) != 1:
             raise ValueError(
@@ -118,24 +120,24 @@ def validate_round():
     print(f"random word : {selected_word}")
 
     correct_characters = ""
+    incorrect_guess_list = []
 
-    while num_of_lives != 0 or correct_characters.len() != selected_word.len():
+    while num_of_lives > 0:
 
         outcome = ""
-        incorrect_guess_list = []
-
+        
         for character in selected_word:
             if correct_characters.find(character) != -1:
                 outcome += character
             else:
                 outcome += "_"
 
-        print(outcome)
+        print(f"{outcome}\n")
 
         guess = get_user_guess()
 
         result = selected_word.find(guess)
-
+        # make if statement positive first
         if result == -1:
             num_of_lives -= 1
             print(f"incorrect! Num of lives left {num_of_lives}")
@@ -147,7 +149,20 @@ def validate_round():
             correct_characters += guess
             print("correct!")
 
+    if num_of_lives == 0:
+        print("Unlucky you have ran out of guesses!\n")
+        replay_game = str(input("Would you like to retry?? y/n \n"))
+        print(replay_game)
 
+    if replay_game == "y" or "Y":
+        run_round()
+    elif replay_game != "y" or "Y":
+        exit()
+
+    #create loss message give user option to restart game
+    #call new method        
+
+# new method if correct_characters == to selected_word. use correct_characters as param
 
 
 def run_round():
@@ -158,10 +173,6 @@ def run_round():
     validate_round()
 
 
-   # result = word.find(guess)
-   # print(result)
-
-
 run_round()
 
-#check if c is already guessed
+#start game press i for instructions or enter to play
