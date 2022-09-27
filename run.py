@@ -153,17 +153,11 @@ def validate_round():
 
     if num_of_lives == 0:
         print("Unlucky you have ran out of guesses!\n")
-        replay_game = str(input("Would you like to retry?? y/n \n"))
-        print(replay_game)
-
-    if replay_game == "y" or "Y":
-        run_round()
-    elif replay_game != "y" or "Y":
-        exit()
+        restart_game()
+        
 
     #create loss message give user option to restart game
     #call new method        
-
 # new method if correct_characters == to selected_word. use correct_characters as param
 
 
@@ -173,6 +167,24 @@ def correct_word(correct_characters, selected_word):
     """
     if correct_characters == selected_word:
         print("Congratulations you win!!\n")
+        restart_game()
+
+
+def restart_game():
+    """
+    Asks user to input if they would like to restart the game or not
+    """
+    print("Would you like to restart the game? \n")
+    restart = input("Press y to restart or any key to exit...\n")
+
+    if restart == "y":
+        print("You chose to restart!")
+        print("Good Luck! \n")
+        run_round()
+    elif restart != "y":
+        print("You chose to exit!")
+        print("Now Exiting.... \n")
+        exit()
 
 
 def run_round():
