@@ -1,31 +1,34 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman
+My Hangman is a python terminal based game, which runs through a mock terminal on Heroku 
 
-Welcome cjfinan,
+The user tries to guess the randomly selected word before they run out of guesses.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+[You can play the game live here!](LINK HERE)
 
-## Reminders
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## How to play
 
-## Creating the Heroku app
+In my version of Hangman a random word is generated, the user has to guess one letter at a time
+and if the letter is within the word it will then show up however, if they get it wrong
+the program will then display how many lives you have left aswell as a visual representation.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Win the game by guessing the correct word before you lose all your lives.
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Features
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+- Welcome message
+- User can clarify any rules if they are unsure
+- Or user can go straight into playing the game
 
-Connect your GitHub repository and deploy as normal.
+![Welcome message](./images/welcome_message.png)
 
-## Constraints
+- Random word generated for each game
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+![Random word](./images/random_word.png)
 
------
-Happy coding!
+- Accepts user input
+- Valids user input:
+  - You cannot guess more than letter at a time
+  - You cannot guess anything other than a letter between a-z
+  - You cannot guess a letter that you have already guessed

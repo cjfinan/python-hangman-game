@@ -11,14 +11,16 @@ def welcome_message():
     Provides welcome messages and asks user if they want instructions
     on how to play
     """
+    print("--------------------------------------------")
     print("Welcome to Hangman...\n")
     print("Enter i for instructions...")
     instructions = str(input("Or enter any key to play!"))
+    print("--------------------------------------------")
 
     if instructions.lower() == "i":
         print("You selected instructions...\n")
         print("Guess the word using only characters a-z")
-        print("Guess the word before loses all lives!\n")
+        print("Make sure you dont run out of lives!\n")
         print("Good luck!")
     elif instructions != "i":
         print("Getting the game ready for you now...\n")
