@@ -194,7 +194,8 @@ def correct_word(correct_characters, selected_word):
             is_equal = False
 
     if is_equal:
-        print("Congratulations you win!!\n")
+        print("-------------------------------------------------")
+        print(f"Congratulations you guessed {selected_word}!!\n")
         restart_game()
 
 
