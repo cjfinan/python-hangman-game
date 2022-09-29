@@ -3,7 +3,7 @@ My Hangman is a python terminal based game, which runs through a mock terminal o
 
 The user tries to guess the randomly selected word before they run out of guesses.
 
-[You can play the game live here!](LINK HERE)
+[You can play the game live here!](https://python-hangman-game-cjfinan.herokuapp.com/)
 
 
 ## How to play
