@@ -14,7 +14,7 @@ def welcome_message():
     print("--------------------------------------------")
     print("Welcome to Hangman...\n")
     print("Enter i for instructions...")
-    instructions = str(input("Or enter any key to play!"))
+    instructions = str(input("Or enter any key to play!\n"))
     print("--------------------------------------------")
 
     if instructions.lower() == "i":

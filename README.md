@@ -97,3 +97,4 @@ This project was deplayed through Heroku.
 
 ## Credits
 - Code institute for the deployment terminal
+- Code institute for deployment steps
