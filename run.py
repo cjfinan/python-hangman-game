@@ -156,9 +156,9 @@ def validate_round():
 
         for character in selected_word:
             if correct_characters.find(character) != -1:
-                outcome += character
+                outcome += f" {character}"
             else:
-                outcome += " _ "
+                outcome += " _"
 
         print(f"{outcome}\n")
 
