@@ -86,6 +86,10 @@ This is the code that solved the bug:
 - PEP8
   - No errors were returned from PEP8online.com
 
+### Libraries
+- random
+  - random was imported into my project to allow me to randomly select through my keyword variable
+
 ## Deployment
 This project was deplayed through Heroku.
 - Steps for deployment
